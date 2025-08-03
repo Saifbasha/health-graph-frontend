@@ -1,0 +1,99 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+#body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./Assets/background-img.jpg);
+    background-size: cover;
+    background-position: center;
+}
+#content{
+    height: 90vh;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10%;
+    /* border: 2px solid; */
+    /* From https://css.glass */
+   background: rgba(0,0,0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+#Pcontent{
+    height: 100%;
+    width: 50%;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#deasesUpdate{
+    height: 100%;
+    width: 50%;
+    /* border: 2px solid green; */
+   
+}
+table{
+    width: 90%;
+    /* border: 1px solid #000; */
+}
+input{
+    background-color: transparent;
+    border: 1px solid rgb(255,255,255,0.7);
+    height: 2rem;
+    padding-left: 5px;
+    color: rgb(255,255,255);
+    font-size: 17px;
+}
+#edit{
+    height: 2rem;
+    width: 15rem;
+    color: #fff;
+    background-color: #16a34a;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+input[type="checkbox"], input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #00bfff; /* sky blue */
+  margin-right: 8px;
+}
+#backbtn{
+    height: 100%;
+    width: 5rem;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* padding-top: 50px; */
+    /* border-right: 1px solid #fff; */
+}
+#link{
+    color: #fff;
+    height: 3rem;
+    filter: drop-shadow(2px 2px 2px #000);
+}
+#backlink{
+    color: #fff;
+    text-decoration: none;
+    /* border: 2px solid red; */
+}
+#backlink:hover , #link:hover{
+    color: #f00;
+}
