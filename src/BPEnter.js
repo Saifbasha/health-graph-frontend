@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useData } from './UserContextData'
-import Display from './Display';
+
 
 export default function BPEnter() {
     const today = new Date();
@@ -51,7 +51,10 @@ export default function BPEnter() {
         alignItems:"center",
         justifyContent:"space-evenly",
         // border:"2px solid #000",
-        height:"50%"
+        borderBottom:"2px solid #0f0",
+        height:"45%",
+        padding:"0px 0px"
+
     }
 
     let btn={
@@ -67,6 +70,7 @@ export default function BPEnter() {
 
     let inputStyle={
         display:"flex",
+        flexDirection:"column",
         alignItems:"center",
         justifyContent:"space-evenly",
         width:"100%"
@@ -77,7 +81,10 @@ export default function BPEnter() {
         <div id="bp" style={styles}>
             <h1>Enter BP Record:</h1>
             <div style={inputStyle}>
-                <input type="number" name="sys_pressure" onChange={EnterNew} required/> <h2>/</h2> <input type="number" name="dia_pressure" onChange={EnterNew} required/>
+                <input type='date' name="date" value={bp.date} onChange={EnterNew} max={formatted}/> <br />
+                <div style={{display:"flex" , gap:"20px"}}>
+                    <input type="number" name="sys_pressure" onChange={EnterNew} required/> <h2>/</h2> <input type="number" name="dia_pressure" onChange={EnterNew} required/>
+                </div>
             </div>
             <button onClick={submit} style={btn}>Submit</button>
         </div>

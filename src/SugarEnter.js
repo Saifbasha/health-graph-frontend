@@ -71,6 +71,11 @@ export default function SugarEnter() {
             <h1>Enter Diabetes Record</h1>
             <table>
                 <tr>
+                    <td colSpan={2} style={{textAlign:"center"}}>
+                        <input type='date' name="date" value={sugar.date} onChange={EnterNewSugar} max={formatted}/>
+                    </td>
+                </tr>
+                <tr>
                     <th>Before Food :</th>
                     <td><input type='number' name="beforeFood" onChange={EnterNewSugar} required/></td>
                 </tr>
