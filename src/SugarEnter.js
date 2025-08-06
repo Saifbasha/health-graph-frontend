@@ -5,7 +5,6 @@ import { useData } from './UserContextData';
 export default function SugarEnter() {
       const today = new Date();
         const formatted = today.toISOString().split('T')[0];
-        const [clicked, setClicked] = useState(false);
         let [loading , setLoading]=useState(true)
         let [sugar ,setSugar]=useState({
             "date":formatted,
@@ -23,7 +22,9 @@ export default function SugarEnter() {
     }
 
     async function  updateSugar() {
-        if(loading) {
+        const allFilled = Object.values(sugar).every(value => value !== "" && value !== null);
+        if(allFilled){
+            if(loading) {
         alert("Loading.....!Please wait for a minute")
       }
         let Response=await fetch(`https://health-graph-backend.onrender.com/updateDiabete/${id}`,{
@@ -33,18 +34,22 @@ export default function SugarEnter() {
                 },
             body:JSON.stringify(sugar)
         })
-
+         setSugar({
+                 "date":formatted,
+            "beforeFood":"",
+            "afterFood":""
+            })
         let data=await Response.json()
         setLoading(false)
          alert(data.msg)
         setPatient(data.data)
+        }else{
+            alert("please enter all the details")
+        }
     }
 
     function submit(){
-         if(!clicked){
             updateSugar()
-            setClicked(true)
-        }
     }
 
     let styles={
@@ -77,11 +82,11 @@ export default function SugarEnter() {
                 </tr>
                 <tr>
                     <th>Before Food :</th>
-                    <td><input type='number' name="beforeFood" onChange={EnterNewSugar} required/></td>
+                    <td><input type='number' value={sugar.beforeFood} name="beforeFood" onChange={EnterNewSugar} required/></td>
                 </tr>
                 <tr>
                     <th>After Food :</th>
-                    <td><input type='number' name="afterFood" onChange={EnterNewSugar} required/></td>
+                    <td><input type='number' value={sugar.afterFood} name="afterFood" onChange={EnterNewSugar} required/></td>
                 </tr>
                 <tr>
                     <td colSpan={2} style={{textAlign:"center"}}><button onClick={submit} style={btn}>Submit</button></td>

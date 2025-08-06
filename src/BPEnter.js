@@ -5,7 +5,6 @@ import { useData } from './UserContextData'
 export default function BPEnter() {
     const today = new Date();
     const formatted = today.toISOString().split('T')[0];
-    const [clicked, setClicked] = useState(false);
     let [loading , setLoading]=useState(true)
     let [bp ,setBp]=useState({
         "date":formatted,
@@ -22,7 +21,10 @@ export default function BPEnter() {
     }
 
     async function UpdateBP() {
-        if(loading) {
+        const allFilled = Object.values(bp).every(value => value !== "" && value !== null);
+
+        if(allFilled){
+            if(loading) {
         alert("Loading.....!Please wait for a minute")
       }
         let Response=await fetch(`https://health-graph-backend.onrender.com/updateBp/${id}`,{
@@ -32,17 +34,22 @@ export default function BPEnter() {
             },
             body: JSON.stringify(bp)
         })
+         setBp({
+                "date":formatted,
+                "sys_pressure":"",
+                "dia_pressure":""
+            })
         let data= await Response.json()
         setLoading(false)
         alert(data.msg)
         setPatient(data.data)
+        }else{
+            alert("please enter the details")
+        }
     }
 
     function submit(){
-        if(!clicked){
             UpdateBP()
-            setClicked(true)
-        }
     }
 
     let styles={
@@ -83,7 +90,7 @@ export default function BPEnter() {
             <div style={inputStyle}>
                 <input type='date' name="date" value={bp.date} onChange={EnterNew} max={formatted}/> <br />
                 <div style={{display:"flex" , gap:"20px"}}>
-                    <input type="number" name="sys_pressure" onChange={EnterNew} required/> <h2>/</h2> <input type="number" name="dia_pressure" onChange={EnterNew} required/>
+                    <input type="number" name="sys_pressure" value={bp.sys_pressure} onChange={EnterNew} required/> <h2>/</h2> <input type="number" value={bp.dia_pressure} name="dia_pressure" onChange={EnterNew} required/>
                 </div>
             </div>
             <button onClick={submit} style={btn}>Submit</button>
