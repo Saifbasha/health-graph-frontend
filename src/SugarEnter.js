@@ -16,7 +16,6 @@ export default function SugarEnter() {
     function EnterNewSugar(e){
         setSugar(prev=>({
             ...prev ,
-            "date":formatted,
             [e.target.name]:e.target.value
         }))
     }
