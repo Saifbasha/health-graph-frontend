@@ -16,7 +16,6 @@ export default function SugarEnter() {
     function EnterNewSugar(e){
         setSugar(prev=>({
             ...prev ,
-            "date":formatted,
             [e.target.name]:e.target.value
         }))
     }
@@ -82,11 +81,11 @@ export default function SugarEnter() {
                 </tr>
                 <tr>
                     <th>Before Food :</th>
-                    <td><input type='number' value={sugar.beforeFood} name="beforeFood" onChange={EnterNewSugar} required/></td>
+                    <td><input type='number' value={sugar.beforeFood} name="beforeFood" onChange={EnterNewSugar} max={1000} required/></td>
                 </tr>
                 <tr>
                     <th>After Food :</th>
-                    <td><input type='number' value={sugar.afterFood} name="afterFood" onChange={EnterNewSugar} required/></td>
+                    <td><input type='number' value={sugar.afterFood} name="afterFood" onChange={EnterNewSugar} max={1000} required/></td>
                 </tr>
                 <tr>
                     <td colSpan={2} style={{textAlign:"center"}}><button onClick={submit} style={btn}>Submit</button></td>
