@@ -97,3 +97,10 @@ input[type="checkbox"], input[type="radio"] {
 #backlink:hover , #link:hover{
     color: #f00;
 } 
+ input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #007BFF; /* blue background for icon */
+    color: white;
+    border-radius: 50%;
+    padding: 4px;
+    cursor: pointer;
+  }
