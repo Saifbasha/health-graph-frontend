@@ -37,11 +37,14 @@ import { useData } from './UserContextData';
               })
           let data=await Response.json();
           setLoading(false)
-          alert(data.msg)
+          if(data.statusCode==200){
+            alert(data.msg)
           setPhone(1)
           setPatient(data.data)
           navigate("/display")
-          
+          }else{
+            alert(data.msg)
+          }
     }
 
    return (

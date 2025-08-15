@@ -21,7 +21,7 @@ function Home(props) {
       </main>
       </div>
     </div>
-  )
+  )  
 
 }
 

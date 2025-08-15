@@ -44,6 +44,7 @@ export default function NewData() {
         setLoading(false);
         alert(data.msg)
         setPatient(data.data)
+        setIsEditable(false)
     }
 
       function multiFunction(){
@@ -126,3 +127,4 @@ export default function NewData() {
     </>
   )
 }
+   
