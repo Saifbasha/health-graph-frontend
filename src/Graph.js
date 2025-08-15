@@ -25,7 +25,7 @@ export default function Graph() {
                              }}/>
                         </div>
                         <div id='graph'>
-                            {bpGraph && <BpGraph data={patient.bp}/>}
+                            {bpGraph && <BpGraph myArray={patient.bp}/>}
                         </div> 
                     </div>
                     <div id='backbtn'>
@@ -48,7 +48,7 @@ export default function Graph() {
                              }}/>
                         </div>
                         <div id='graph'>
-                            {sugarGraph && <SugarGraph data={patient.diabetes}/>}
+                            {sugarGraph && <SugarGraph myArray={patient.diabetes}/>}
                         </div>   
                     </div>
                 </div>

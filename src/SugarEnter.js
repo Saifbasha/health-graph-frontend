@@ -13,6 +13,8 @@ export default function SugarEnter() {
         })
         let {patient , setPatient}=useData();
         let id=patient.pid;
+        
+        console.log(sugar.json())
     function EnterNewSugar(e){
         setSugar(prev=>({
             ...prev ,

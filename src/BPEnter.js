@@ -13,6 +13,7 @@ export default function BPEnter() {
     })
     let {patient , setPatient}=useData();
     let id=patient.pid;
+    setBp( [...bp].sort((a, b) => new Date(a.date) - new Date(b.date)))
     function EnterNew(e){
         setBp(pre=>({
             ...pre,

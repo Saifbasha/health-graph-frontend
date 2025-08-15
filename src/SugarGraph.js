@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 }from 'recharts';
-export default function SugarGraph({data}) {
+export default function SugarGraph({myArray}) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const sorted = [...myArray].sort((a, b) => new Date(a.date) - new Date(b.date));
+    setData(sorted);
+  }, [myArray]);
   return (
     <div style={{ width: '100%', height: 400 , backgroundColor: 'rgb(255,255,255)', padding: '10px', borderRadius:'10px' , boxShadow:"5px 5px 5px #000 , -5px -5px 5px #000"}}>
       <ResponsiveContainer>
